@@ -7,6 +7,7 @@
       ./../../hardware-configuration.nix
       self.nixosModules.defaultCore
       self.nixosModules.gnome
+      self.nixosModules.secureBoot
       self.nixosModules.zram
       self.nixosModules.impermanence
       self.nixosModules.fail2ban

@@ -3,14 +3,13 @@
 
     boot = {
       loader = {
-        efi.efiSysMountPoint = "/boot";
-        grub = {
+        efi = {
+          efiSysMountPoint = "/boot";
+          canTouchEfiVariables = true;
+        };
+        systemd-boot = {
           enable = true;
-          efiSupport = true;
-          useOSProber = true;
-          enableCryptodisk = true;
-          efiInstallAsRemovable = true;
-          device = "nodev";
+          configurationLimit = 10;
         };
       };
     };
@@ -67,6 +66,7 @@
       gnome-boxes
       qemu
       kernel-hardening-checker
+      sbctl
     ];
 
     networking.hostName = "rabbit";
