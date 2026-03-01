@@ -12,22 +12,15 @@
           configurationLimit = 10;
         };
       };
+      resumeDevice = "/dev/mapper/crypted";
+      kernelParams = [ "resume_offset=533760" ];
+      kernelPackages = pkgs.linuxPackages_hardened;
+      kernel.sysctl = {
+        "kernel.unprivileged_userns_clone" = 1;
+      };
+      initrd.systemd.enable = true;
     };
 
-    services.btrfs.autoScrub = {
-      enable = true;
-      interval = "weekly";
-      fileSystems = ["/"];
-    };
-
-    boot.resumeDevice = "/dev/mapper/crypted";
-    boot.kernelParams = [ "resume_offset=533760" ];
-
-    boot.kernelPackages = pkgs.linuxPackages_hardened;
-
-    boot.kernel.sysctl = {
-      "kernel.unprivileged_userns_clone" = 1;
-    };
     security.chromiumSuidSandbox.enable = true;
 
     virtualisation.libvirtd.enable = true;
