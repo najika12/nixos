@@ -3,10 +3,14 @@
 
     boot = {
       loader = {
+        efi.efiSysMountPoint = "/boot";
         grub = {
           enable = true;
+          efiSupport = true;
           useOSProber = true;
           enableCryptodisk = true;
+          efiInstallAsRemovable = true;
+          device = "nodev";
         };
       };
     };
@@ -39,7 +43,7 @@
 
     environment.systemPackages = with pkgs; [
       brave
-      signal-desktop-bin
+      signal-desktop
       #obsidian
       cryptomator
       ppsspp
