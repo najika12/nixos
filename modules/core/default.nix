@@ -14,14 +14,9 @@
       };
       resumeDevice = "/dev/mapper/crypted";
       kernelParams = [ "resume_offset=533760" ];
-      kernelPackages = pkgs.linuxPackages_hardened;
-      kernel.sysctl = {
-        "kernel.unprivileged_userns_clone" = 1;
-      };
+      kernelPackages = pkgs.linuxPackages_6_18;
       initrd.systemd.enable = true;
     };
-
-    security.chromiumSuidSandbox.enable = true;
 
     virtualisation.libvirtd.enable = true;
 
@@ -50,15 +45,13 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
-      #unrar
-      haruna
+      #unrar 
       vesktop
       btop
       anki
       mullvad-browser
       gnome-boxes
       qemu
-      kernel-hardening-checker
       sbctl
     ];
 
