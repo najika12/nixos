@@ -18,8 +18,6 @@
       initrd.systemd.enable = true;
     };
 
-    virtualisation.libvirtd.enable = true;
-
     networking.networkmanager.enable = true;
 
     time.timeZone = "Asia/Jakarta";
@@ -31,7 +29,7 @@
     environment.systemPackages = with pkgs; [
       brave
       signal-desktop
-      #obsidian
+      logseq
       cryptomator
       ppsspp
       localsend
@@ -40,18 +38,14 @@
       qbittorrent
       tree
       wl-clipboard
-      onlyoffice-desktopeditors
+      libreoffice
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
-      #unrar 
       vesktop
       btop
       anki
-      mullvad-browser
-      gnome-boxes
-      qemu
       sbctl
     ];
 
